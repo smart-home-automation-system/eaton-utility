@@ -5,6 +5,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.MISSING_SOL_OR_EOL;
+import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.NON_HEX_VALUES;
+
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EatonValidator {
@@ -19,7 +22,7 @@ public class EatonValidator {
 
     private static void hasValidStartAndEndByte(String message) {
         if (! message.startsWith("5A") || !message.endsWith("A5")) {
-            throw new EatonException("Invalid Eaton message - missing SOL or EOL");
+            throw new EatonException(MISSING_SOL_OR_EOL);
         }
     }
 
@@ -28,7 +31,7 @@ public class EatonValidator {
 
         for (String s : singleByte) {
             if (!s.matches("[a-fA-F0-9]{1,2}")) {
-                throw new EatonException("Invalid Eaton message - contains not hax values");
+                throw new EatonException(NON_HEX_VALUES);
             }
         }
     }

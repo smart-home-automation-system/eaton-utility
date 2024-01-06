@@ -20,11 +20,13 @@ class EatonValidatorTest {
             final String name,
             final String message
     ) {
-        Assertions.assertThrows(
+        String s = Assertions.assertThrows(
                 EatonException.class,
                 () -> isValidEatonMessage(message),
                 "s"
-        );
+        ).getLocalizedMessage();
+
+        System.out.println(s);
     }
 
     private static Stream<Arguments> invalidMessages() {
