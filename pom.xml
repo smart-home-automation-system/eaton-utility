@@ -21,7 +21,7 @@
         <repository>
             <id>github</id>
             <name>magikabdul</name>
-            <url>https://maven.pkg.github.com/magikabdul/cholewa-commons</url>
+            <url>https://maven.pkg.github.com/smart-home-automation-system/eaton-utility</url>
         </repository>
     </distributionManagement>
 
