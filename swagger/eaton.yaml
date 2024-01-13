@@ -21,3 +21,13 @@ components:
         - RX
         - STATUS
         - ERROR
+    BatteryLevel:
+      type: string
+      enum:
+        - NOT_AVAILABLE
+        - EMPTY
+        - VERY_WEAK
+        - WEAK
+        - GOOD
+        - NEW
+        - MAINS_OPERATED
