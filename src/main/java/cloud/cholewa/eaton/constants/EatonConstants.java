@@ -1,4 +1,4 @@
-package cloud.cholewa.eaton.infrastructure.error;
+package cloud.cholewa.eaton.constants;
 
 import lombok.AccessLevel;
 import lombok.Getter;
