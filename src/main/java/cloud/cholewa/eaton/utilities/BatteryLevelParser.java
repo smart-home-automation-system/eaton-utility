@@ -1,5 +1,7 @@
 package cloud.cholewa.eaton.utilities;
 
+import cloud.cholewa.eaton.infrastructure.error.EatonException;
+import cloud.cholewa.eaton.infrastructure.error.ErrorDictionary;
 import cloud.cholewa.eaton.model.BatteryLevel;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -18,7 +20,7 @@ public class BatteryLevelParser {
             case "4" -> GOOD;
             case "5" -> NEW;
             case "10" -> MAINS_OPERATED;
-            default -> throw new IllegalArgumentException("Invalid Value for battery level");
+            default -> throw new EatonException(ErrorDictionary.BATTERY_LEVEL_INVALID);
         };
     }
 }
