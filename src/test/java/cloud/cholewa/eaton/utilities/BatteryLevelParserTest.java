@@ -1,5 +1,6 @@
 package cloud.cholewa.eaton.utilities;
 
+import cloud.cholewa.eaton.infrastructure.error.EatonException;
 import cloud.cholewa.eaton.model.BatteryLevel;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -67,7 +68,7 @@ class BatteryLevelParserTest {
             String name,
             String batteryLevel
     ) {
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(EatonException.class,
                 () -> BatteryLevelParser.getBatteryLevel(batteryLevel));
     }
 
