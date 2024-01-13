@@ -31,3 +31,10 @@ components:
         - GOOD
         - NEW
         - MAINS_OPERATED
+    SignalStrength:
+      type: string
+      enum:
+        - GOOD
+        - NORMAL
+        - WEAK
+        - VERY WEAK

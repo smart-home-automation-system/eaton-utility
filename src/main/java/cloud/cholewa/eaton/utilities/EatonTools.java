@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static cloud.cholewa.eaton.infrastructure.error.EatonConstants.EOL;
-import static cloud.cholewa.eaton.infrastructure.error.EatonConstants.SOL;
+import static cloud.cholewa.eaton.constants.EatonConstants.EOL;
+import static cloud.cholewa.eaton.constants.EatonConstants.SOL;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EatonTools {
