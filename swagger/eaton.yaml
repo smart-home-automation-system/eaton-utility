@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: Eaton - xComfort system
   description: Smart Home System
@@ -38,3 +38,11 @@ components:
         - NORMAL
         - WEAK
         - VERY WEAK
+    EatonReceivedMessage:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        name:
+          type: string

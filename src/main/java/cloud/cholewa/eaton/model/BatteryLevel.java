@@ -18,9 +18,9 @@ public enum BatteryLevel {
 
     MAINS_OPERATED("MAINS_OPERATED");
 
-    private final Object value;
+    private final String value;
 
-    BatteryLevel(Object value) {
+    BatteryLevel(String value) {
         this.value = value;
     }
 
@@ -31,7 +31,7 @@ public enum BatteryLevel {
     }
 
     @JsonCreator
-    public static BatteryLevel fromValue(Object value) {
+    public static BatteryLevel fromValue(String value) {
         for (BatteryLevel b : BatteryLevel.values()) {
             if (b.value.equals(value)) {
                 return b;

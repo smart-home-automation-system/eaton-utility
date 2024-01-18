@@ -16,9 +16,9 @@ public enum PayloadType {
 
     ERROR("ERROR");
 
-    private final Object value;
+    private final String value;
 
-    PayloadType(Object value) {
+    PayloadType(String value) {
         this.value = value;
     }
 
@@ -29,7 +29,7 @@ public enum PayloadType {
     }
 
     @JsonCreator
-    public static PayloadType fromValue(Object value) {
+    public static PayloadType fromValue(String value) {
         for (PayloadType b : PayloadType.values()) {
             if (b.value.equals(value)) {
                 return b;
