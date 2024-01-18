@@ -29,6 +29,7 @@
 		<java.version>17</java.version>
 
 		<jackson-databind.version>2.16.1</jackson-databind.version>
+        <swagger-annotations.version>2.2.15</swagger-annotations.version>
 
         <!--  plugins versions-->
 		<maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
@@ -46,6 +47,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-annotations.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

@@ -12,9 +12,9 @@ public enum SignalStrength {
 
     VERY_WEAK("VERY WEAK");
 
-    private final Object value;
+    private final String value;
 
-    SignalStrength(Object value) {
+    SignalStrength(String value) {
         this.value = value;
     }
 
@@ -25,7 +25,7 @@ public enum SignalStrength {
     }
 
     @JsonCreator
-    public static SignalStrength fromValue(Object value) {
+    public static SignalStrength fromValue(String value) {
         for (SignalStrength b : SignalStrength.values()) {
             if (b.value.equals(value)) {
                 return b;
