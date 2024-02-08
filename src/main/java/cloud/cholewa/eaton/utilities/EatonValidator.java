@@ -3,12 +3,10 @@ package cloud.cholewa.eaton.utilities;
 import cloud.cholewa.eaton.infrastructure.error.EatonException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.MISSING_SOL_OR_EOL;
 import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.NON_HEX_VALUES;
 
-@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EatonValidator {
 

@@ -2,7 +2,6 @@ package cloud.cholewa.eaton.utilities;
 
 import cloud.cholewa.eaton.infrastructure.error.EatonException;
 import cloud.cholewa.eaton.model.SignalStrength;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,7 +16,6 @@ import static cloud.cholewa.eaton.utilities.SignalStrengthParser.parseSignalStre
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@Slf4j
 class SignalStrengthParserTest {
 
     @ParameterizedTest(name = "{0}")
