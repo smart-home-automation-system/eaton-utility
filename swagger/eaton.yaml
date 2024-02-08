@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Eaton - xComfort system
+  description: Smart Home System
+  version: 1.0.0
+
+tags:
+  - name: Eaton
+    description: xComfort Smart Home
+
+paths: {}
+
+components:
+  schemas:
+    PayloadType:
+      type: string
+      enum:
+        - TX
+        - CONFIG
+        - TX_EXT
+        - RX
+        - STATUS
+        - ERROR
+    BatteryLevel:
+      type: string
+      enum:
+        - NOT_AVAILABLE
+        - EMPTY
+        - VERY_WEAK
+        - WEAK
+        - GOOD
+        - NEW
+        - MAINS_OPERATED
+    SignalStrength:
+      type: string
+      enum:
+        - GOOD
+        - NORMAL
+        - WEAK
+        - VERY WEAK
+    EatonReceivedMessage:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        name:
+          type: string

@@ -1,0 +1,28 @@
+package {{package}};
+
+{{#imports}}
+    import {{import}};
+{{/imports}}
+
+{{#serializableModel}}
+    import java.io.Serializable;
+{{/serializableModel}}
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
+{{#useBeanValidation}}
+    import jakarta.annotation.Nullable;
+    import jakarta.validation.Valid;
+    import jakarta.validation.constraints.Pattern;
+{{/useBeanValidation}}
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
+import lombok.experimental.NonFinal;
+import lombok.experimental.SuperBuilder;
+
+{{#models}}
+    {{#model}}
+        {{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>pojo}}{{/isEnum}}
+    {{/model}}
+{{/models}}
