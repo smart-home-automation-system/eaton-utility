@@ -1,6 +1,7 @@
 package cloud.cholewa.eaton.utilities;
 
 import cloud.cholewa.eaton.infrastructure.error.EatonException;
+import cloud.cholewa.eaton.model.Message;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -8,18 +9,16 @@ import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.MISSING_S
 import static cloud.cholewa.eaton.infrastructure.error.ErrorDictionary.NON_HEX_VALUES;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EatonValidator {
+public class MessageValidator {
 
     public static boolean isValidEatonMessage(String message) {
-
         hasValidStartAndEndByte(message);
         containsOnlyHexValues(message);
         return true;
     }
 
-
     private static void hasValidStartAndEndByte(String message) {
-        if (! message.startsWith("5A") || !message.endsWith("A5")) {
+        if (!message.startsWith(Message.SOL.getValue()) || !message.endsWith(Message.EOL.getValue())) {
             throw new EatonException(MISSING_SOL_OR_EOL);
         }
     }

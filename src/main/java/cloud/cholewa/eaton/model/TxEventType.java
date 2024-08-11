@@ -4,23 +4,25 @@ package cloud.cholewa.eaton.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum PayloadType {
+public enum TxEventType {
 
-    TX("B1"),
+    SWITCH("0A"),
 
-    CONFIG("B2"),
+    REQUEST("0B"),
 
-    TX_EXT("B3"),
+    PERCENT("0C"),
 
-    RX("C1"),
+    DIMMING("OD"),
 
-    STATUS("C3"),
+    JALO_MOVE("0E"),
 
-    ERROR("C9");
+    JALO_STEP("0F"),
+
+    BASIC_MODE("80");
 
     private String value;
 
-    PayloadType(String value) {
+    TxEventType(String value) {
         this.value = value;
     }
 
@@ -35,8 +37,8 @@ public enum PayloadType {
     }
 
     @JsonCreator
-    public static PayloadType fromValue(String value) {
-        for (PayloadType b : PayloadType.values()) {
+    public static TxEventType fromValue(String value) {
+        for (TxEventType b : TxEventType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

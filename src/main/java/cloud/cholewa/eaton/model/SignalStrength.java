@@ -1,9 +1,11 @@
+
 package cloud.cholewa.eaton.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SignalStrength {
+
     GOOD("GOOD"),
 
     NORMAL("NORMAL"),
@@ -12,14 +14,18 @@ public enum SignalStrength {
 
     VERY_WEAK("VERY WEAK");
 
-    private final String value;
+    private String value;
 
     SignalStrength(String value) {
         this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
     public String toString() {
         return String.valueOf(value);
     }
@@ -31,6 +37,6 @@ public enum SignalStrength {
                 return b;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }

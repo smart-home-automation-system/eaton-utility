@@ -1,9 +1,11 @@
+
 package cloud.cholewa.eaton.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum BatteryLevel {
+
     NOT_AVAILABLE("NOT_AVAILABLE"),
 
     EMPTY("EMPTY"),
@@ -18,14 +20,18 @@ public enum BatteryLevel {
 
     MAINS_OPERATED("MAINS_OPERATED");
 
-    private final String value;
+    private String value;
 
     BatteryLevel(String value) {
         this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
     public String toString() {
         return String.valueOf(value);
     }
@@ -37,6 +43,6 @@ public enum BatteryLevel {
                 return b;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }

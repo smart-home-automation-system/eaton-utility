@@ -1,8 +1,7 @@
 {{#required}}
-    @NotNull
-{{/required}}
-{{^required}}
-    @Nullable
+    {{^isReadOnly}}
+        @NotNull
+    {{/isReadOnly}}
 {{/required}}
 {{#isContainer}}
     {{^isPrimitiveType}}

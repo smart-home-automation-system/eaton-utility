@@ -178,7 +178,7 @@
 							<generatorName>java</generatorName>
 							<inputSpec>${project.basedir}/swagger/eaton.yaml/</inputSpec>
 
-							<library>webclient</library>
+							<library>feign</library>
 							<templateDirectory>${project.basedir}/swagger/templates</templateDirectory>
 							<output>${project.basedir}</output>
 							<modelPackage>cloud.cholewa.eaton.model</modelPackage>

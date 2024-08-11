@@ -6,7 +6,13 @@ import cloud.cholewa.eaton.model.BatteryLevel;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import static cloud.cholewa.eaton.model.BatteryLevel.*;
+import static cloud.cholewa.eaton.model.BatteryLevel.EMPTY;
+import static cloud.cholewa.eaton.model.BatteryLevel.GOOD;
+import static cloud.cholewa.eaton.model.BatteryLevel.MAINS_OPERATED;
+import static cloud.cholewa.eaton.model.BatteryLevel.NEW;
+import static cloud.cholewa.eaton.model.BatteryLevel.NOT_AVAILABLE;
+import static cloud.cholewa.eaton.model.BatteryLevel.VERY_WEAK;
+import static cloud.cholewa.eaton.model.BatteryLevel.WEAK;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BatteryLevelParser {
