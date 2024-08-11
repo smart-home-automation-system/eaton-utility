@@ -9,21 +9,21 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static cloud.cholewa.eaton.utilities.EatonValidator.isValidEatonMessage;
+import static cloud.cholewa.eaton.utilities.MessageValidator.isValidEatonMessage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class EatonValidatorTest {
+class MessageValidatorTest {
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("invalidMessages")
     void should_throw_exception_if_no_valid_eaton_message(
-            final String name,
-            final String message
+        final String name,
+        final String message
     ) {
         String s = Assertions.assertThrows(
-                EatonException.class,
-                () -> isValidEatonMessage(message),
-                "s"
+            EatonException.class,
+            () -> isValidEatonMessage(message),
+            "s"
         ).getLocalizedMessage();
 
         System.out.println(s);
@@ -31,12 +31,12 @@ class EatonValidatorTest {
 
     private static Stream<Arguments> invalidMessages() {
         return Stream.of(
-                Arguments.of("missing message start and end", "C,C1,21,70,0,0,0,0,0,0,32,10"),
-                Arguments.of("missing message start", "C,C1,21,70,0,0,0,0,0,0,32,10,A5"),
-                Arguments.of("missing message end", "5A,C,C1,21,70,0,0,0,0,0,0,32,10"),
-                Arguments.of("contains not only hex values", "5A,K,C1,21,70,0,0,0,0,0,0,32,10,A5"),
-                Arguments.of("contains hex values larger than FF", "5A,C,C1,21,70,0,0,0,0,0,0,32,199,10,A5"),
-                Arguments.of("contains subsequent commas", "5A,C,C1,21,70,0,0,0,0,0,0,32,,10,A5")
+            Arguments.of("missing message start and end", "C,C1,21,70,0,0,0,0,0,0,32,10"),
+            Arguments.of("missing message start", "C,C1,21,70,0,0,0,0,0,0,32,10,A5"),
+            Arguments.of("missing message end", "5A,C,C1,21,70,0,0,0,0,0,0,32,10"),
+            Arguments.of("contains not only hex values", "5A,K,C1,21,70,0,0,0,0,0,0,32,10,A5"),
+            Arguments.of("contains hex values larger than FF", "5A,C,C1,21,70,0,0,0,0,0,0,32,199,10,A5"),
+            Arguments.of("contains subsequent commas", "5A,C,C1,21,70,0,0,0,0,0,0,32,,10,A5")
         );
     }
 
